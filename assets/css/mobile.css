@@ -13,8 +13,28 @@
         cursor: pointer;
     }
 
+    .toc-toggle {
+        display: flex;
+        cursor: pointer;
+    }
+
     .nav-list.active {
         display: flex;
+        border-bottom: 0.2rem dashed var(--border-color);
+        border-top: 0.2rem dashed var(--border-color);
+        top: 100%;
+        position: absolute;
+    }
+
+    #toc-in-header.active {
+        display: flex;
+        border-bottom: 0.2rem dashed var(--border-color);
+        border-top: 0.2rem dashed var(--border-color);
+        top: 100%;
+        position: absolute;
+        height: auto;
+        text-align: left;
+        margin: 0rem;
     }
 
     #header {

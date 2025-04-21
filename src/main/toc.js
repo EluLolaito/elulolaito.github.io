@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     let content = document.querySelector("#markdown-content");
-    let tocContainer = document.querySelector("#table-of-contents");
+    let tocContainers = document.querySelectorAll(".table-of-contents");
 
-    if (!content || !tocContainer) return;
+    if (!content || tocContainers.length === 0) return;
 
     let headings = content.querySelectorAll("h1, h2, h3, h4, h5, h6");
     let tocList = document.createElement("ul");
@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let tocItem = document.createElement("li");
         let tocLink = document.createElement("a");
+        tocLink.classList.add("anchor-link");
         let tocNumber = document.createElement("span");
 
         tocNumber.classList.add("toc-number");
@@ -40,5 +41,8 @@ document.addEventListener("DOMContentLoaded", function () {
         parentList.appendChild(tocItem);
     });
 
-    tocContainer.appendChild(tocList);
+    // tocContainer.appendChild(tocList);
+    tocContainers.forEach(container => {
+        container.appendChild(tocList.cloneNode(true));
+    });
 });
